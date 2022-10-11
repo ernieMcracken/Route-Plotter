@@ -60,6 +60,9 @@ class RoutePlotter():
         Print a string representation of the route.
     move(direction)
         Move from current position to an adjacent grid square.
+    removeCoord(index=None)
+        Remove a coordinate from the route, coordinate is removed 
+        based on index. Default - remove last coordinate. 
     """
     _moves = {
         "N": Coordinate(0, 1),
@@ -114,7 +117,13 @@ class RoutePlotter():
         return False
     
     def removeCoord(self, index=None):
-        """Remove a coordinate from the route"""
+        """Remove a coordinate from the route
+        
+        Parameters
+        ----------
+        index int, optional
+            Index of coordinate to remove, defaults to last index.
+        """
         if index == None:
             self._coords.pop()
         else:

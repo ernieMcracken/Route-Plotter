@@ -1,6 +1,5 @@
 from os import linesep
 
-
 class OutOfGridError(Exception):
     pass
 
@@ -113,6 +112,13 @@ class RoutePlotter():
         if (coord.x >= 1 and coord.x <= self._cols) and (coord.y >= 1 and coord.y <=self._rows):
             return True
         return False
+    
+    def removeCoord(self, index=None):
+        """Remove a coordinate from the route"""
+        if index == None:
+            self._coords.pop()
+        else:
+            self._coords.pop(index)
 
     def printCoords(self):
         """Print the route's coordinates"""
